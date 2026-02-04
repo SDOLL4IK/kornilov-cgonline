@@ -14,7 +14,7 @@ const About = () => {
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
             Привет! Меня зовут <span className="text-foreground font-medium">Даниил</span>, 
-            мне 20 лет. Я начинающий <span className="text-primary font-medium">Compositing Artist</span>, 
+            мне 20 лет. Я <span className="text-primary font-medium">Junior Compositing Artist</span>, 
             работающий в формате фриланса.
           </p>
           

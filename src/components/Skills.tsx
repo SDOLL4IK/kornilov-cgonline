@@ -1,20 +1,19 @@
 import { Wrench } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
-const skills = [
-  { name: "Nuke", category: "primary" },
-  { name: "Mocha Pro", category: "secondary" },
-  { name: "3DEqualizer", category: "secondary" },
+const software = [
+  { name: "Nuke", description: "Основной инструмент", level: 85 },
+  { name: "Mocha Pro", description: "Планарный трекинг", level: 70 },
+  { name: "3DEqualizer", description: "Matchmove", level: 65 },
 ];
 
 const specializations = [
-  "Compositing",
-  "Cleanup",
-  "CGI Integration",
-  "Roto",
-  "Keying",
-  "Matchmove",
-  "Color Correction",
+  { name: "Compositing", icon: "🎬" },
+  { name: "Cleanup", icon: "✨" },
+  { name: "CGI Integration", icon: "🎯" },
+  { name: "Roto", icon: "✂️" },
+  { name: "Keying", icon: "🟢" },
+  { name: "Matchmove", icon: "📐" },
+  { name: "Color Correction", icon: "🎨" },
 ];
 
 const Skills = () => {
@@ -28,43 +27,52 @@ const Skills = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Навыки и софт</h2>
         </div>
 
-        {/* Software */}
-        <div className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-muted-foreground">Программное обеспечение</h3>
-          <div className="flex flex-wrap gap-4">
-            {skills.map((skill) => (
+        {/* Software with progress bars */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold mb-8 text-muted-foreground">Программное обеспечение</h3>
+          <div className="space-y-6">
+            {software.map((item, index) => (
               <div
-                key={skill.name}
-                className={`px-6 py-4 rounded-xl border transition-all duration-300 hover:scale-105 ${
-                  skill.category === "primary"
-                    ? "bg-primary/10 border-primary/30 glow-sm"
-                    : "bg-secondary border-border hover:border-primary/30"
-                }`}
+                key={item.name}
+                className="group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <span
-                  className={`text-lg font-medium ${
-                    skill.category === "primary" ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {skill.name}
-                </span>
+                <div className="flex justify-between items-center mb-2">
+                  <div>
+                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
+                      {item.name}
+                    </span>
+                    <span className="text-sm text-muted-foreground ml-3">
+                      {item.description}
+                    </span>
+                  </div>
+                </div>
+                <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-blue-400 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${item.level}%` }}
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Specializations */}
+        {/* Specializations as cards */}
         <div>
-          <h3 className="text-xl font-semibold mb-6 text-muted-foreground">Специализации</h3>
-          <div className="flex flex-wrap gap-3">
-            {specializations.map((spec) => (
-              <Badge
-                key={spec}
-                variant="secondary"
-                className="px-4 py-2 text-sm font-medium bg-secondary hover:bg-primary/20 transition-colors duration-300"
+          <h3 className="text-xl font-semibold mb-8 text-muted-foreground">Специализации</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {specializations.map((spec, index) => (
+              <div
+                key={spec.name}
+                className="p-4 rounded-xl bg-secondary/50 border border-border hover:border-primary/30 hover:bg-secondary transition-all duration-300 group cursor-default"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
-                {spec}
-              </Badge>
+                <span className="text-2xl mb-2 block">{spec.icon}</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                  {spec.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>
