@@ -6,7 +6,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const navItems = [
   { name: "Обо мне", href: "#about" },
   { name: "Навыки", href: "#skills" },
-  { name: "Проекты", href: "#projects" },
   { name: "Контакты", href: "#contact" },
 ];
 
@@ -46,9 +45,9 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-xl font-bold text-gradient"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
-            DK
+            Даниил Корнилов
           </a>
 
           {/* Desktop Navigation */}
