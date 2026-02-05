@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="w-full max-w-4xl mx-auto glow rounded-xl overflow-hidden animate-scale-in">
           <AspectRatio ratio={16 / 9}>
             <iframe
-              src="https://www.youtube.com/embed/5yvR50UUqD4?rel=0&modestbranding=1"
+              src="https://www.youtube.com/embed/5yvR50UUqD4?rel=0&modestbranding=1&color=white"
               title="Showreel - Даниил Корнилов"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

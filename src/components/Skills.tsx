@@ -1,9 +1,9 @@
 import { Wrench } from "lucide-react";
 
 const software = [
-  { name: "Nuke", description: "Основной инструмент", level: 85 },
-  { name: "Mocha Pro", description: "Планарный трекинг", level: 70 },
-  { name: "3DEqualizer", description: "Matchmove", level: 65 },
+  { name: "Nuke", description: "Основной инструмент" },
+  { name: "Mocha Pro", description: "Планарный трекинг" },
+  { name: "3DEqualizer", description: "Matchmove" },
 ];
 
 const specializations = [
@@ -28,31 +28,20 @@ const Skills = () => {
         </div>
 
         {/* Software with progress bars */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h3 className="text-xl font-semibold mb-8 text-muted-foreground">Программное обеспечение</h3>
-          <div className="space-y-6">
-            {software.map((item, index) => (
+          <div className="flex flex-wrap gap-3">
+            {software.map((item) => (
               <div
                 key={item.name}
-                className="group"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group px-4 py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300"
               >
-                <div className="flex justify-between items-center mb-2">
-                  <div>
-                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
-                      {item.name}
-                    </span>
-                    <span className="text-sm text-muted-foreground ml-3">
-                      {item.description}
-                    </span>
-                  </div>
-                </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-primary to-blue-400 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${item.level}%` }}
-                  />
-                </div>
+                <span className="text-foreground font-medium group-hover:text-gradient transition-colors">
+                  {item.name}
+                </span>
+                <span className="text-sm text-muted-foreground ml-2">
+                  — {item.description}
+                </span>
               </div>
             ))}
           </div>

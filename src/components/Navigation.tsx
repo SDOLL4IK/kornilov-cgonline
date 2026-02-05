@@ -45,9 +45,9 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className="text-lg signature-text text-gradient hover:opacity-80 transition-opacity"
           >
-            Даниил Корнилов
+            Даниил К.
           </a>
 
           {/* Desktop Navigation */}
