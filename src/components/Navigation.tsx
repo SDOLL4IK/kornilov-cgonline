@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Film } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
   { name: "Обо мне", href: "#about" },
   { name: "Навыки", href: "#skills" },
+  { name: "FAQ", href: "#faq" },
   { name: "Контакты", href: "#contact" },
 ];
 
@@ -45,18 +46,19 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-lg signature-text text-gradient hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            Даниил К.
+            <Film className="w-5 h-5 text-primary" />
+            <span className="text-sm md:text-base font-medium text-foreground">Даниил</span>
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <li key={item.name}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
                 >
                   {item.name}
                 </button>
@@ -68,17 +70,17 @@ const Navigation = () => {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
                 <span className="sr-only">Открыть меню</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-background border-border">
-              <nav className="flex flex-col gap-6 mt-12">
+              <nav className="flex flex-col gap-5 mt-10">
                 {navItems.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-xl text-muted-foreground hover:text-primary transition-colors duration-300 text-left font-medium"
+                    className="text-lg text-muted-foreground hover:text-primary transition-colors duration-300 text-left font-medium"
                   >
                     {item.name}
                   </button>
