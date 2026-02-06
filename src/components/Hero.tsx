@@ -15,10 +15,10 @@ const Hero = () => {
         {/* Title */}
         <div className="text-center mb-6 md:mb-8 animate-fade-in">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
-            <span className="text-foreground">Даниил</span>{" "}
-            <span className="text-gradient">Корнилов</span>
+            <span className="text-foreground">Корнилов</span>{" "}
+            <span className="text-gradient">Даниил</span>
           </h1>
-          <p className="text-lg md:text-2xl text-muted-foreground font-light">
+          <p className="text-lg md:text-2xl text-muted-foreground/90 font-medium tracking-widest uppercase">
             Compositing Artist
           </p>
         </div>

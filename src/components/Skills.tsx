@@ -34,7 +34,7 @@ const Skills = () => {
             {software.map((item) => (
               <div
                 key={item.name}
-                className="group px-3 md:px-4 py-2 md:py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300"
+                className="group px-3 md:px-4 py-2 md:py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default select-none"
               >
                 <span className="text-sm md:text-base text-foreground font-medium group-hover:text-primary transition-colors">
                   {item.name}
