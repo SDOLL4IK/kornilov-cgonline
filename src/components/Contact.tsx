@@ -1,4 +1,5 @@
-import { Mail, Send, ExternalLink } from "lucide-react";
+import { Mail, Send, ExternalLink, Check } from "lucide-react";
+import { useState } from "react";
 
 const contacts = [
   {
@@ -14,6 +15,7 @@ const contacts = [
     icon: Mail,
     description: "daniil.kornilov.06@gmail.com",
     isLink: false,
+    isCopyable: true,
   },
   {
     name: "Telegram",
@@ -25,6 +27,26 @@ const contacts = [
 ];
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("daniil.kornilov.06@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback
+      const textArea = document.createElement("textarea");
+      textArea.value = "daniil.kornilov.06@gmail.com";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <section id="contact" className="py-16 md:py-24 px-4 bg-card/50">
       <div className="container max-w-3xl mx-auto">
@@ -40,11 +62,15 @@ const Contact = () => {
             const content = (
               <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border hover:border-primary/50 transition-all duration-300 hover:glow-sm text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
-                  <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  {contact.isCopyable && copied ? (
+                    <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-scale-in" />
+                  ) : (
+                    <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  )}
                 </div>
                 <div className="text-left sm:text-center">
                   <h3 className="font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300 text-sm md:text-base">
-                    {contact.name}
+                    {contact.isCopyable && copied ? "Скопировано!" : contact.name}
                   </h3>
                   <p className="text-xs md:text-sm text-muted-foreground break-all sm:break-normal select-text">
                     {contact.description}
@@ -64,6 +90,18 @@ const Contact = () => {
                 >
                   {content}
                 </a>
+              );
+            }
+
+            if (contact.isCopyable) {
+              return (
+                <button
+                  key={contact.name}
+                  onClick={handleCopyEmail}
+                  className="group cursor-pointer text-left"
+                >
+                  {content}
+                </button>
               );
             }
 
