@@ -1,5 +1,4 @@
 import { Mail, Send, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const contacts = [
   {
@@ -7,18 +6,21 @@ const contacts = [
     href: "https://www.imdb.com/name/nm18068801/",
     icon: ExternalLink,
     description: "Моя фильмография",
+    isLink: true,
   },
   {
     name: "Email",
-    href: "mailto:daniil.kornilov.06@gmail.com",
+    href: "",
     icon: Mail,
     description: "daniil.kornilov.06@gmail.com",
+    isLink: false,
   },
   {
     name: "Telegram",
     href: "https://t.me/sdoll4ik",
     icon: Send,
     description: "@sdoll4ik",
+    isLink: true,
   },
 ];
 
@@ -34,14 +36,8 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-          {contacts.map((contact) => (
-            <a
-              key={contact.name}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
+          {contacts.map((contact) => {
+            const content = (
               <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border hover:border-primary/50 transition-all duration-300 hover:glow-sm text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
                   <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
@@ -50,24 +46,33 @@ const Contact = () => {
                   <h3 className="font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300 text-sm md:text-base">
                     {contact.name}
                   </h3>
-                  <p className="text-xs md:text-sm text-muted-foreground break-all sm:break-normal">{contact.description}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground break-all sm:break-normal select-text">
+                    {contact.description}
+                  </p>
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
+            );
 
-        <div className="mt-8 md:mt-12 text-center">
-          <Button
-            asChild
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground glow-sm w-full sm:w-auto"
-          >
-            <a href="mailto:daniil.kornilov.06@gmail.com">
-              <Mail className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-              Написать письмо
-            </a>
-          </Button>
+            if (contact.isLink) {
+              return (
+                <a
+                  key={contact.name}
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  {content}
+                </a>
+              );
+            }
+
+            return (
+              <div key={contact.name} className="group cursor-default">
+                {content}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
