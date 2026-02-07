@@ -49,7 +49,7 @@ const Navigation = () => {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <Film className="w-5 h-5 text-primary" />
-            <span className="text-sm md:text-base font-medium text-foreground">Даниил</span>
+            <span className="text-sm md:text-base font-medium text-foreground">Showreel</span>
           </a>
 
           {/* Desktop Navigation */}

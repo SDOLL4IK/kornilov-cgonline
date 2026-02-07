@@ -34,7 +34,7 @@ const Skills = () => {
             {software.map((item) => (
               <div
                 key={item.name}
-                className="group px-3 md:px-4 py-2 md:py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default select-none"
+                className="group px-3 md:px-4 py-2 md:py-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default"
               >
                 <span className="text-sm md:text-base text-foreground font-medium group-hover:text-primary transition-colors">
                   {item.name}
@@ -57,8 +57,8 @@ const Skills = () => {
                 className="p-3 md:p-4 rounded-xl bg-secondary/50 border border-border hover:border-primary/30 hover:bg-secondary transition-all duration-300 group cursor-default"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <span className="text-xl md:text-2xl mb-1 md:mb-2 block">{spec.icon}</span>
-                <span className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                <span className="text-xl md:text-2xl mb-1 md:mb-2 block select-none">{spec.icon}</span>
+                <span className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors select-text">
                   {spec.name}
                 </span>
               </div>

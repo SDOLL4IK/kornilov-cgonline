@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
@@ -15,12 +15,16 @@ const Hero = () => {
         {/* Title */}
         <div className="text-center mb-6 md:mb-8 animate-fade-in">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
-            <span className="text-foreground">Корнилов</span>{" "}
-            <span className="text-gradient">Даниил</span>
+            <span className="text-gradient">Kornilov</span>{" "}
+            <span className="text-foreground">Daniil</span>
           </h1>
-          <p className="text-lg md:text-2xl text-muted-foreground/90 font-medium tracking-widest uppercase">
-            Compositing Artist
-          </p>
+          <div className="flex items-center justify-center gap-3 md:gap-4">
+            <span className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-primary/50" />
+            <p className="text-lg md:text-2xl text-muted-foreground/90 font-medium tracking-widest uppercase">
+              Compositing Artist
+            </p>
+            <span className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-primary/50" />
+          </div>
         </div>
 
         {/* Showreel */}
@@ -28,12 +32,25 @@ const Hero = () => {
           <AspectRatio ratio={16 / 9}>
             <iframe
               src="https://www.youtube.com/embed/5yvR50UUqD4?rel=0&modestbranding=1&color=white"
-              title="Showreel - Даниил Корнилов"
+              title="Showreel - Kornilov Daniil"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full"
             />
           </AspectRatio>
+        </div>
+
+        {/* Yandex Disk link */}
+        <div className="mt-4 text-center animate-fade-in">
+          <a
+            href="https://disk.yandex.ru/i/GcGhzrZAlGsOTw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group"
+          >
+            <ExternalLink className="w-4 h-4 group-hover:text-primary transition-colors" />
+            <span>Шоурил в высоком разрешении на Яндекс Диске</span>
+          </a>
         </div>
 
         {/* Scroll indicator */}
