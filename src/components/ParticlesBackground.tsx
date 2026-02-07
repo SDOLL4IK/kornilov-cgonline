@@ -29,15 +29,19 @@ const ParticlesBackground = () => {
     };
 
     const createParticles = () => {
-      const particleCount = Math.min(100, Math.floor(window.innerWidth / 12));
+      const isMobile = window.innerWidth < 768;
+      const particleCount = isMobile 
+        ? Math.min(40, Math.floor(window.innerWidth / 20))
+        : Math.min(100, Math.floor(window.innerWidth / 12));
       particles = [];
       for (let i = 0; i < particleCount; i++) {
-        const speedX = (Math.random() - 0.5) * 0.6;
-        const speedY = (Math.random() - 0.5) * 0.6;
+        const speedX = (Math.random() - 0.5) * (isMobile ? 0.3 : 0.6);
+        const speedY = (Math.random() - 0.5) * (isMobile ? 0.3 : 0.6);
+        const margin = 20;
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 5 + 2.5,
+          x: margin + Math.random() * (canvas.width - margin * 2),
+          y: margin + Math.random() * (canvas.height - margin * 2),
+          size: Math.random() * 2.5 + 1.25,
           speedX,
           speedY,
           baseSpeedX: speedX,
@@ -79,10 +83,12 @@ const ParticlesBackground = () => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
+        // Smooth wrapping with margin to prevent edge glitching
+        const margin = 10;
+        if (particle.x < -margin) particle.x = canvas.width + margin;
+        if (particle.x > canvas.width + margin) particle.x = -margin;
+        if (particle.y < -margin) particle.y = canvas.height + margin;
+        if (particle.y > canvas.height + margin) particle.y = -margin;
 
         // Pulsating glow
         const pulse = Math.sin(time * 1.5 + particle.x * 0.01) * 0.15 + 0.85;
@@ -151,16 +157,23 @@ const ParticlesBackground = () => {
     createParticles();
     animate();
 
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-      createParticles();
-    });
+    let resizeTimeout: number;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        resizeCanvas();
+        createParticles();
+      }, 150);
+    };
+
+    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resizeCanvas);
+      clearTimeout(resizeTimeout);
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
     };
