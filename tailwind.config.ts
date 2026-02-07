@@ -86,25 +86,24 @@ export default {
         },
         "cinema-float": {
           "0%": {
-            transform: "translate(0, 0) rotate(var(--start-rotation))",
-            opacity: "0.4",
+            transform: "translate(0, 0)",
           },
           "25%": {
-            transform: "translate(calc(var(--drift-x) * 0.5), calc(var(--drift-y) * -1)) rotate(calc(var(--start-rotation) + 10deg))",
-            opacity: "0.6",
+            transform: "translate(calc(var(--drift-x) * 0.5), calc(var(--drift-y) * -1))",
           },
           "50%": {
-            transform: "translate(var(--drift-x), 0px) rotate(var(--end-rotation))",
-            opacity: "0.4",
+            transform: "translate(var(--drift-x), 0px)",
           },
           "75%": {
-            transform: "translate(calc(var(--drift-x) * 0.3), var(--drift-y)) rotate(calc(var(--end-rotation) - 15deg))",
-            opacity: "0.6",
+            transform: "translate(calc(var(--drift-x) * 0.3), var(--drift-y))",
           },
           "100%": {
-            transform: "translate(0, 0) rotate(var(--start-rotation))",
-            opacity: "0.4",
+            transform: "translate(0, 0)",
           },
+        },
+        "cinema-spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
       animation: {
@@ -113,7 +112,8 @@ export default {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out 0.2s forwards",
         bounce: "bounce 2s ease-in-out infinite",
-        "cinema-float": "cinema-float linear infinite",
+        "cinema-float": "cinema-float ease-in-out infinite",
+        "cinema-spin": "cinema-spin linear infinite",
       },
     },
   },
