@@ -5,12 +5,12 @@ import Skills from "@/components/Skills";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import FloatingCinemaObjects from "@/components/FloatingCinemaObjects";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <ParticlesBackground />
+      <FloatingCinemaObjects />
       <Navigation />
       <main className="relative z-10">
         <Hero />

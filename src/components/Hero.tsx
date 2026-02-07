@@ -3,7 +3,12 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById("about");
+    if (el) {
+      const offset = 80; // account for fixed navbar height
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
