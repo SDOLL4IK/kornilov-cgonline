@@ -29,20 +29,20 @@ const ParticlesBackground = () => {
     };
 
     const createParticles = () => {
-      const particleCount = Math.min(120, Math.floor(window.innerWidth / 10));
+      const particleCount = Math.min(100, Math.floor(window.innerWidth / 12));
       particles = [];
       for (let i = 0; i < particleCount; i++) {
-        const speedX = (Math.random() - 0.5) * 0.5;
-        const speedY = (Math.random() - 0.5) * 0.5;
+        const speedX = (Math.random() - 0.5) * 0.6;
+        const speedY = (Math.random() - 0.5) * 0.6;
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2.5 + 0.8,
+          size: Math.random() * 5 + 2.5,
           speedX,
           speedY,
           baseSpeedX: speedX,
           baseSpeedY: speedY,
-          opacity: Math.random() * 0.5 + 0.15,
+          opacity: Math.random() * 0.6 + 0.25,
         });
       }
     };
@@ -58,22 +58,20 @@ const ParticlesBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouse = mouseRef.current;
-      const interactionRadius = 200;
+      const interactionRadius = 250;
+      const time = Date.now() * 0.001;
 
       particles.forEach((particle) => {
-        // Calculate distance to mouse
         const dx = particle.x - mouse.x;
         const dy = particle.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < interactionRadius && dist > 0) {
-          // Push particles away from cursor
           const force = (interactionRadius - dist) / interactionRadius;
           const angle = Math.atan2(dy, dx);
-          particle.speedX = particle.baseSpeedX + Math.cos(angle) * force * 2;
-          particle.speedY = particle.baseSpeedY + Math.sin(angle) * force * 2;
+          particle.speedX = particle.baseSpeedX + Math.cos(angle) * force * 3;
+          particle.speedY = particle.baseSpeedY + Math.sin(angle) * force * 3;
         } else {
-          // Gradually return to base speed
           particle.speedX += (particle.baseSpeedX - particle.speedX) * 0.05;
           particle.speedY += (particle.baseSpeedY - particle.speedY) * 0.05;
         }
@@ -86,40 +84,61 @@ const ParticlesBackground = () => {
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Glow color shifts near mouse
+        // Pulsating glow
+        const pulse = Math.sin(time * 1.5 + particle.x * 0.01) * 0.15 + 0.85;
         const proximity = dist < interactionRadius ? 1 - dist / interactionRadius : 0;
-        const hue = 250 - proximity * 50; // shifts from purple toward cyan
+        const hue = 220 - proximity * 40;
         const saturation = 80 + proximity * 20;
-        const lightness = 60 + proximity * 15;
+        const lightness = 55 + proximity * 20;
+        const glowSize = particle.size * (3.5 + proximity * 2) * pulse;
 
+        // Outer glow layer
+        const outerGlow = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, glowSize * 1.8
+        );
+        outerGlow.addColorStop(0, `hsla(${hue}, ${saturation}%, ${lightness}%, ${(particle.opacity * 0.15 + proximity * 0.1) * pulse})`);
+        outerGlow.addColorStop(1, "transparent");
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, glowSize * 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = outerGlow;
+        ctx.fill();
+
+        // Inner glow
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 3
+          particle.x, particle.y, glowSize
         );
-        gradient.addColorStop(0, `hsla(${hue}, ${saturation}%, ${lightness}%, ${particle.opacity + proximity * 0.3})`);
-        gradient.addColorStop(0.5, `hsla(${hue - 30}, 100%, 50%, ${particle.opacity * 0.3})`);
+        gradient.addColorStop(0, `hsla(${hue}, ${saturation}%, ${lightness + 15}%, ${(particle.opacity + proximity * 0.4) * pulse})`);
+        gradient.addColorStop(0.4, `hsla(${hue}, 100%, ${lightness}%, ${particle.opacity * 0.5 * pulse})`);
         gradient.addColorStop(1, "transparent");
 
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, glowSize, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Bright core
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${hue}, 90%, 85%, ${(particle.opacity * 0.8 + proximity * 0.2) * pulse})`;
         ctx.fill();
       });
 
-      // Draw connection lines between nearby particles
+      // Connection lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 180) {
-            const opacity = (1 - dist / 180) * 0.12;
+          if (dist < 200) {
+            const opacity = (1 - dist / 200) * 0.18;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(230, 80%, 65%, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `hsla(220, 85%, 65%, ${opacity})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
