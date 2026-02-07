@@ -71,8 +71,9 @@ const FloatingCinemaObjects = () => {
             className="w-full h-full object-contain animate-cinema-spin"
             style={{
               animationDuration: `${obj.spinSpeed}s`,
-              opacity: 0.35,
-              filter: "brightness(1.2) saturate(0.8)",
+              opacity: 0.45,
+              filter: "brightness(1.3) saturate(0.9)",
+              mixBlendMode: "screen",
             }}
             draggable={false}
           />
