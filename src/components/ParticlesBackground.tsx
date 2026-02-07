@@ -29,20 +29,20 @@ const ParticlesBackground = () => {
     };
 
     const createParticles = () => {
-      const particleCount = Math.min(60, Math.floor(window.innerWidth / 18));
+      const particleCount = Math.min(120, Math.floor(window.innerWidth / 10));
       particles = [];
       for (let i = 0; i < particleCount; i++) {
-        const speedX = (Math.random() - 0.5) * 0.4;
-        const speedY = (Math.random() - 0.5) * 0.4;
+        const speedX = (Math.random() - 0.5) * 0.5;
+        const speedY = (Math.random() - 0.5) * 0.5;
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2.5 + 1,
+          size: Math.random() * 2.5 + 0.8,
           speedX,
           speedY,
           baseSpeedX: speedX,
           baseSpeedY: speedY,
-          opacity: Math.random() * 0.5 + 0.2,
+          opacity: Math.random() * 0.5 + 0.15,
         });
       }
     };
@@ -58,7 +58,7 @@ const ParticlesBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouse = mouseRef.current;
-      const interactionRadius = 150;
+      const interactionRadius = 200;
 
       particles.forEach((particle) => {
         // Calculate distance to mouse
@@ -113,8 +113,8 @@ const ParticlesBackground = () => {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
-            const opacity = (1 - dist / 120) * 0.15;
+          if (dist < 180) {
+            const opacity = (1 - dist / 180) * 0.12;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
