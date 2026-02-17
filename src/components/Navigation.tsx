@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Film } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -44,8 +44,7 @@ const Navigation = () => {
             }}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <Film className="w-5 h-5 text-primary" />
-            <span className="text-sm md:text-base font-medium text-foreground">Showreel</span>
+            <span className="text-sm md:text-base font-medium text-foreground tracking-wide">Daniil Kornilov</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
