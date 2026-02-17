@@ -1,4 +1,4 @@
-import { Mail, Send, Check } from "lucide-react";
+import { Mail, Send, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import imdbLogo from "@/assets/imdb-circle.png";
 
@@ -67,10 +67,10 @@ const Contact = () => {
                   ) : contact.icon ? (
                     <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   ) : (
-                    <img src={imdbLogo} alt="IMDb" className="w-8 h-8 md:w-9 md:h-9" />
+                    <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   )}
                 </div>
-                <div className="text-left sm:text-center transition-opacity duration-200 group-hover/card:opacity-90">
+                <div className="text-left sm:text-center transition-opacity duration-200 group-hover/card:opacity-75">
                   <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm md:text-base">
                     {contact.isCopyable && copied ? "Copied!" : contact.name}
                   </h3>
