@@ -59,7 +59,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
           {contacts.map((contact) => {
             const content = (
-              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border transition-none text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0">
+              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border hover:border-white/50 transition-[border-color] duration-300 ease-in-out text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
                   {contact.isCopyable && copied ? (
                     <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-scale-in" />
