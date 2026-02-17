@@ -67,7 +67,7 @@ const Contact = () => {
                   ) : contact.icon ? (
                     <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   ) : (
-                    <img src={imdbLogo} alt="IMDb" className="w-6 h-6 md:w-7 md:h-7" />
+                    <img src={imdbLogo} alt="IMDb" className="w-6 h-6 md:w-7 md:h-7 rounded" />
                   )}
                 </div>
                 <div className="text-left sm:text-center">
