@@ -42,7 +42,7 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex flex-col hover:opacity-80 transition-opacity -ml-2"
+            className="flex flex-col hover:opacity-80 transition-opacity -ml-6"
           >
             <span className="text-lg md:text-2xl font-medium text-foreground tracking-widest uppercase" style={{ fontFamily: "'Roboto', sans-serif", letterSpacing: '0.15em' }}>Daniil Kornilov</span>
             <span className="text-[10px] md:text-xs text-muted-foreground tracking-[0.3em] uppercase" style={{ fontFamily: "'Roboto', sans-serif", fontWeight: 300 }}>Compositing Artist</span>
