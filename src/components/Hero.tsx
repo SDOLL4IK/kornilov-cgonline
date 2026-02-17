@@ -16,7 +16,7 @@ const Hero = () => {
       
       <div className="container max-w-7xl mx-auto z-10">
         {/* Showreel */}
-        <div className="w-full mx-auto rounded-2xl overflow-hidden animate-scale-in border border-white/20">
+        <div className="w-full mx-auto rounded-2xl overflow-hidden animate-scale-in border border-white/50">
           <AspectRatio ratio={16 / 9}>
             <iframe
               src="https://www.youtube.com/embed/5yvR50UUqD4?rel=0&modestbranding=1&color=white"
