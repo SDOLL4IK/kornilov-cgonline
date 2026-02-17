@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
-  { name: "Контакты", href: "#contact" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Navigation = () => {
@@ -65,7 +65,7 @@ const Navigation = () => {
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="w-5 h-5" />
-                <span className="sr-only">Открыть меню</span>
+                <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-background border-border">

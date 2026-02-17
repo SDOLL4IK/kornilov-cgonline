@@ -1,11 +1,11 @@
-import { ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const el = document.getElementById("about");
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
     if (el) {
-      const offset = 80; // account for fixed navbar height
+      const offset = 80;
       const top = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }
@@ -13,25 +13,9 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-20">
-      {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
       
       <div className="container max-w-5xl mx-auto z-10">
-        {/* Title */}
-        <div className="text-center mb-6 md:mb-8 animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
-            <span className="text-gradient">Kornilov</span>{" "}
-            <span className="text-foreground">Daniil</span>
-          </h1>
-          <div className="flex items-center justify-center gap-3 md:gap-4">
-            <span className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-primary/50" />
-            <p className="text-lg md:text-2xl text-muted-foreground/90 font-medium tracking-widest uppercase">
-              Compositing Artist
-            </p>
-            <span className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-primary/50" />
-          </div>
-        </div>
-
         {/* Showreel */}
         <div className="w-full max-w-4xl mx-auto glow rounded-xl overflow-hidden animate-scale-in">
           <AspectRatio ratio={16 / 9}>
@@ -45,26 +29,13 @@ const Hero = () => {
           </AspectRatio>
         </div>
 
-        {/* Yandex Disk link */}
-        <div className="mt-4 text-center animate-fade-in">
-          <a
-            href="https://disk.yandex.ru/i/GcGhzrZAlGsOTw"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group"
-          >
-            <ExternalLink className="w-4 h-4 group-hover:text-primary transition-colors" />
-            <span>Шоурил в высоком разрешении на Яндекс Диске</span>
-          </a>
-        </div>
-
         {/* Scroll indicator */}
         <button
-          onClick={scrollToAbout}
+          onClick={scrollToContact}
           className="mt-8 md:mt-12 mx-auto flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer group"
-          aria-label="Scroll to about section"
+          aria-label="Scroll to contact section"
         >
-          <span className="text-sm font-medium">Узнать больше</span>
+          <span className="text-sm font-medium">Learn more</span>
           <ChevronDown className="w-6 h-6 animate-bounce group-hover:text-primary" />
         </button>
       </div>
