@@ -48,8 +48,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 relative" style={{ backgroundColor: '#08080a' }}>
-      <div className="absolute top-0 left-0 right-0 -translate-y-full h-16 md:h-24 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #08080a)' }} />
+    <section id="contact" className="py-16 md:py-24 px-4 relative">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, #08080a 45%)' }} />
       <div className="container max-w-3xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h2>
