@@ -1,6 +1,6 @@
 import { Mail, Send, Check } from "lucide-react";
 import { useState } from "react";
-import imdbLogo from "@/assets/imdb-logo.svg";
+import imdbLogo from "@/assets/imdb-circle.png";
 
 const contacts = [
   {
@@ -60,14 +60,14 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
           {contacts.map((contact) => {
             const content = (
-              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 hover:scale-[1.02] hover:opacity-80 transition-[transform,opacity] duration-200 ease-out will-change-transform">
+              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 hover:scale-[1.02] hover:opacity-90 transition-[transform,opacity] duration-200 ease-out will-change-transform">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   {contact.isCopyable && copied ? (
                     <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-scale-in" />
                   ) : contact.icon ? (
                     <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   ) : (
-                    <img src={imdbLogo} alt="IMDb" className="w-6 h-6 md:w-7 md:h-7 rounded" />
+                    <img src={imdbLogo} alt="IMDb" className="w-8 h-8 md:w-9 md:h-9" />
                   )}
                 </div>
                 <div className="text-left sm:text-center">
