@@ -34,7 +34,7 @@ const Navigation = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container max-w-6xl mx-auto px-4 py-4">
+      <nav className="container max-w-6xl mx-auto px-4 py-6 md:py-8">
         <div className="flex items-center justify-between">
           <a
             href="#"
