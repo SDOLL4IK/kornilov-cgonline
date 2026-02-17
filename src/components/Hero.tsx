@@ -1,4 +1,3 @@
-import { ChevronDown } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
@@ -29,15 +28,6 @@ const Hero = () => {
           </AspectRatio>
         </div>
 
-        {/* Scroll indicator */}
-        <button
-          onClick={scrollToContact}
-          className="mt-8 md:mt-12 mx-auto flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer group"
-          aria-label="Scroll to contact section"
-        >
-          <span className="text-sm font-medium">Learn more</span>
-          <ChevronDown className="w-6 h-6 animate-bounce group-hover:text-primary" />
-        </button>
       </div>
     </section>
   );
