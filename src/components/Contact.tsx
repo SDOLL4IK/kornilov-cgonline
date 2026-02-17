@@ -49,7 +49,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 px-4 relative">
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, #08080a 45%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 20%, #08080a 35%)' }} />
       <div className="container max-w-3xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h2>
