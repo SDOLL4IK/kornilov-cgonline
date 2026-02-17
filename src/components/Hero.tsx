@@ -13,7 +13,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+      
       
       <div className="container max-w-5xl mx-auto z-10">
         {/* Showreel */}
