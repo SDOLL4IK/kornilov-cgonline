@@ -44,8 +44,8 @@ const Navigation = () => {
             }}
             className="flex flex-col hover:opacity-80 transition-opacity"
           >
-            <span className="text-lg md:text-2xl font-bold text-foreground tracking-widest uppercase" style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.15em' }}>Daniil Kornilov</span>
-            <span className="text-[10px] md:text-xs text-muted-foreground tracking-[0.3em] uppercase">Compositing Artist</span>
+            <span className="text-lg md:text-2xl font-semibold text-foreground tracking-widest uppercase" style={{ fontFamily: "'Cinzel', serif", letterSpacing: '0.15em' }}>Daniil Kornilov</span>
+            <span className="text-[10px] md:text-xs text-muted-foreground tracking-[0.3em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>Compositing Artist</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
