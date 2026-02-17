@@ -53,7 +53,7 @@ const Navigation = () => {
               <li key={item.name}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-medium uppercase tracking-widest"
                 >
                   {item.name}
                 </button>
