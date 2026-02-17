@@ -51,7 +51,7 @@ const Contact = () => {
     <section id="contact" className="pt-24 md:pt-36 pb-16 md:pb-24 px-4 relative">
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 20%, #0e0e12 35%)' }} />
       <div className="container max-w-3xl mx-auto relative z-10">
-        <div className="text-center mb-8 md:mb-16">
+        <div className="text-center mb-5 md:mb-8">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h2>
           <p className="text-muted-foreground text-base md:text-lg">
             Open for new projects and collaboration
