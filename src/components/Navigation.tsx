@@ -42,9 +42,10 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex flex-col hover:opacity-80 transition-opacity"
           >
-            <span className="text-sm md:text-base font-medium text-foreground tracking-wide">Daniil Kornilov</span>
+            <span className="text-lg md:text-2xl font-bold text-foreground tracking-widest uppercase" style={{ fontFamily: "'Georgia', serif", letterSpacing: '0.15em' }}>Daniil Kornilov</span>
+            <span className="text-[10px] md:text-xs text-muted-foreground tracking-[0.3em] uppercase">Compositing Artist</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
