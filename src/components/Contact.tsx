@@ -6,7 +6,7 @@ const contacts = [
     name: "IMDb",
     href: "https://www.imdb.com/name/nm18068801/",
     icon: ExternalLink,
-    description: "Моя фильмография",
+    description: "Filmography",
     isLink: true,
   },
   {
@@ -35,7 +35,6 @@ const Contact = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // fallback
       const textArea = document.createElement("textarea");
       textArea.value = "daniil.kornilov.06@gmail.com";
       document.body.appendChild(textArea);
@@ -51,9 +50,9 @@ const Contact = () => {
     <section id="contact" className="py-16 md:py-24 px-4 bg-card/50">
       <div className="container max-w-3xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Связаться со мной</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h2>
           <p className="text-muted-foreground text-base md:text-lg">
-            Открыт для новых проектов и сотрудничества
+            Open for new projects and collaboration
           </p>
         </div>
 
@@ -70,7 +69,7 @@ const Contact = () => {
                 </div>
                 <div className="text-left sm:text-center">
                   <h3 className="font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300 text-sm md:text-base">
-                    {contact.isCopyable && copied ? "Скопировано!" : contact.name}
+                    {contact.isCopyable && copied ? "Copied!" : contact.name}
                   </h3>
                   <p className="text-xs md:text-sm text-muted-foreground break-all sm:break-normal select-text">
                     {contact.description}
