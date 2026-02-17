@@ -60,7 +60,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
           {contacts.map((contact) => {
             const content = (
-              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 hover:scale-[1.02] hover:opacity-90 transition-[transform,opacity] duration-200 ease-out will-change-transform">
+              <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 hover:scale-[1.02] transition-transform duration-200 ease-out will-change-transform group/card">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   {contact.isCopyable && copied ? (
                     <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-scale-in" />
@@ -70,7 +70,7 @@ const Contact = () => {
                     <img src={imdbLogo} alt="IMDb" className="w-8 h-8 md:w-9 md:h-9" />
                   )}
                 </div>
-                <div className="text-left sm:text-center">
+                <div className="text-left sm:text-center transition-opacity duration-200 group-hover/card:opacity-90">
                   <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm md:text-base">
                     {contact.isCopyable && copied ? "Copied!" : contact.name}
                   </h3>
