@@ -48,7 +48,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4">
+    <section id="contact" className="py-16 md:py-24 px-4 bg-black/20">
       <div className="container max-w-3xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h2>
@@ -63,7 +63,7 @@ const Contact = () => {
               <div className="p-4 md:p-6 rounded-xl bg-secondary border border-border text-center h-full flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 hover:scale-[1.02] transition-transform duration-200 ease-out will-change-transform group/card">
                 <div className="w-10 h-10 md:w-12 md:h-12 sm:mx-auto sm:mb-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   {contact.isCopyable && copied ? (
-                    <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-scale-in" />
+                    <Check className="w-5 h-5 md:w-6 md:h-6 text-green-400 animate-fade-in" />
                   ) : contact.icon ? (
                     <contact.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   ) : (
