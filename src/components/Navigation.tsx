@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
-  { name: "Обо мне", href: "#about" },
-  { name: "Навыки", href: "#skills" },
-  { name: "FAQ", href: "#faq" },
   { name: "Контакты", href: "#contact" },
 ];
 
@@ -39,7 +36,6 @@ const Navigation = () => {
     >
       <nav className="container max-w-6xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a
             href="#"
             onClick={(e) => {
@@ -52,7 +48,6 @@ const Navigation = () => {
             <span className="text-sm md:text-base font-medium text-foreground">Showreel</span>
           </a>
 
-          {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <li key={item.name}>
@@ -66,7 +61,6 @@ const Navigation = () => {
             ))}
           </ul>
 
-          {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
