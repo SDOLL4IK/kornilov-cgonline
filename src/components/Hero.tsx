@@ -14,9 +14,9 @@ const Hero = () => {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-20">
       
       
-      <div className="container max-w-5xl mx-auto z-10">
+      <div className="container max-w-7xl mx-auto z-10">
         {/* Showreel */}
-        <div className="w-full max-w-4xl mx-auto glow rounded-xl overflow-hidden animate-scale-in">
+        <div className="w-full mx-auto glow rounded-2xl overflow-hidden animate-scale-in shadow-2xl shadow-black/50">
           <AspectRatio ratio={16 / 9}>
             <iframe
               src="https://www.youtube.com/embed/5yvR50UUqD4?rel=0&modestbranding=1&color=white"
